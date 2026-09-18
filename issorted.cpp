@@ -54,6 +54,22 @@ void testEmptyArray() {
     assert(isSorted(arr, 0) == true);
 }
 
+bool isSorted(const int arr[], const int size) {
+    // Base Case: Empty array or single element is inherently sorted
+    if (size <= 1) {
+        return true;
+    }
+
+    // Traverse array and compare neighboring elements
+    for (int i = 0; i < size - 1; i++) {
+        // If a left element is strictly greater than its right neighbor, it is unsorted
+        if (arr[i] > arr[i + 1]) {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 
 int main() {
